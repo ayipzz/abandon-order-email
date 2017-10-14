@@ -104,16 +104,15 @@ function aoe_search_and_send_abandon_order_email() {
 
     $abandondedOrdersforEmail = $wpdb->get_results($queryEmail);
 
-    var_dump($abandondedOrdersforEmail);    
-
     foreach ( $abandondedOrdersforEmail as $orderID ) {
 
-        @WP_CLI::log('Email sent to '.$orderID->ID);
+        if( class_exists( 'WP_CLI' ) ) {
+            WP_CLI::log('Email sent to '.$orderID->ID);
+        }
+
         aoe_do_send_email( new WC_Order($orderID->ID) );
+        update_post_meta($order_id->ID, 'aoe_abandoned_emailed', true);
     }
-
-    die();
-
 }
 
 function aoe_get_end_date_time($diff) {
