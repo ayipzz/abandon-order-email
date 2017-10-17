@@ -1,0 +1,109 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-17 11:58+0700\n"
+"PO-Revision-Date: 2017-10-17 12:02+0700\n"
+"Language-Team: \n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.1\n"
+"Last-Translator: \n"
+"Language: id\n"
+
+#: admin-page.php:39
+msgid "Abandon Order Email"
+msgstr ""
+
+#: admin-page.php:45
+msgid "Date"
+msgstr "Tanggal"
+
+#: admin-page.php:46
+msgid "Order ID"
+msgstr "ID Pemesanan"
+
+#: admin-page.php:47
+msgid "Username"
+msgstr ""
+
+#: admin-page.php:48
+msgid "Total Value"
+msgstr ""
+
+#: admin-page.php:49
+msgid "Abandoned"
+msgstr ""
+
+#: admin-page.php:50
+msgid "Email Sent"
+msgstr "Email Terkirim"
+
+#: admin-page.php:51
+msgid "Recover"
+msgstr ""
+
+#: admin-page.php:81
+msgid "No Orders found"
+msgstr "Tidak Ada Pesanan"
+
+#: inc/send-mail.php:11
+#, php-format
+msgid "Complete Your Purchase at %s"
+msgstr "Lengkapi Pembayaranmu di %s"
+
+#: inc/send-mail.php:13 templates/emails/email-abandoned.php:65
+#, php-format
+msgid "Thank You for shopping with %s"
+msgstr "Terimakasih Telah Berbelanja dengan %s"
+
+#: inc/send-mail.php:55
+msgid "Order shipping information"
+msgstr "Informasi Pengiriman Pesanan"
+
+#: templates/emails/email-abandoned.php:21
+msgid "Would you like to complete your purchase for following product ? "
+msgstr "Apakah Anda ingin menyelesaikan pembelian Anda untuk produk berikut?"
+
+#: templates/emails/email-abandoned.php:23
+msgid "Would you like to complete your purchase for following product ?  "
+msgstr "Apakah Anda ingin menyelesaikan pembelian Anda untuk produk berikut?"
+
+#: templates/emails/email-abandoned.php:31
+msgid "Product"
+msgstr "Produk"
+
+#: templates/emails/email-abandoned.php:32
+msgid "Quantity"
+msgstr "Jumlah"
+
+#: templates/emails/email-abandoned.php:33
+msgid "Price"
+msgstr "Harga"
+
+#: templates/emails/email-abandoned.php:34
+#: templates/emails/email-abandoned.php:59
+msgid "Total"
+msgstr ""
+
+#. Name of the plugin
+msgid "WooCommerce Abandon Order with Background Worker"
+msgstr ""
+
+#. Description of the plugin
+msgid "Send abandoned order follow up email"
+msgstr ""
+
+#. URI of the plugin
+msgid "http://www.tonjoostudio.com/"
+msgstr ""
+
+#. Author of the plugin
+msgid "tonjoo"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "http://todiadiyatmo.com/"
+msgstr ""

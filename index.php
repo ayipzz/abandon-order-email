@@ -7,9 +7,12 @@
  * Author: tonjoo
  * Author URI: http://todiadiyatmo.com/
  * License: GPLv2
+ * Text Domain: aoe
  */
 define("PLUGIN_AOE", 'plugin-abandon-order-email');
 define("PLUGIN_AOE_PATH", plugin_dir_path(__FILE__));
+define("AOE_ADMIN_MENU_SLUG', 'plugin-abandon-order-email");
+require_once( PLUGIN_AOE_PATH . 'admin-page.php');
 require_once( PLUGIN_AOE_PATH . 'inc/send-mail.php');
 
 function aoe_cron_schedules($schedules){
@@ -126,3 +129,8 @@ function aoe_get_end_date_time($diff) {
 
     return $endDate;
 }
+
+function aoe_load_textdomain() {
+    load_plugin_textdomain( 'aoe', false, PLUGIN_AOE_PATH . 'lang' ); 
+}
+add_action( 'plugins_loaded', 'aoe_load_textdomain' );
