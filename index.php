@@ -11,7 +11,7 @@
  */
 define("PLUGIN_AOE", 'plugin-abandon-order-email');
 define("PLUGIN_AOE_PATH", plugin_dir_path(__FILE__));
-define("AOE_ADMIN_MENU_SLUG', 'plugin-abandon-order-email");
+define("AOE_ADMIN_MENU_SLUG", "plugin-abandon-order-email");
 require_once( PLUGIN_AOE_PATH . 'admin-page.php');
 require_once( PLUGIN_AOE_PATH . 'inc/send-mail.php');
 
