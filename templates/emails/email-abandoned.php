@@ -25,6 +25,30 @@ if ( ! defined( 'ABSPATH' ) ) {
 	$totals = $order->get_order_item_totals();
 ?>
 <br />
+<?php
+if ( $order->payment_method !== 'bacs') return;
+$bacs_account = new WC_Gateway_BACS();
+?>
+<p><?php _e( 'Please make payment to the account below:', 'aoe' ); ?></p>
+<section class="woocommerce-bacs-bank-details">
+
+	<h2 class="wc-bacs-bank-details-heading"><?php _e( 'Our bank details', 'aoe' ); ?></h2>
+
+	<?php
+
+	foreach ( $bacs_account->account_details as $bacs) { ?>
+
+		<h3 class="wc-bacs-bank-details-account-name"><?php echo $bacs['account_name']; ?>:</h3>
+
+		<ul class="wc-bacs-bank-details order_details bacs_details">
+			<li class="bank_name"><?php _e( 'Bank:', 'aoe' ); ?> <strong><?php echo $bacs['bank_name']; ?></strong></li>
+			<li class="account_number"><?php _e( 'Account number:', 'aoe' ); ?> <strong><?php echo $bacs['account_number']; ?></strong></li>
+		</ul>
+
+	<?php } ?>
+</section>
+
+<h2 class="wc-bacs-bank-details-heading"><?php _e( 'Order Details', 'aoe' ); ?></h2>
 <table class="td" cellspacing="0" cellpadding="6" style="width: 100%; font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;" border="1">
 	<thead>
 		<tr>
@@ -62,10 +86,22 @@ if ( ! defined( 'ABSPATH' ) ) {
 	</tfoot>
 </table>
 <br />
+
+<div class="total_payment">
+	<p><?php _e( 'Total must be paid:', 'aoe' ); ?></p>
+	<h3 class="total"><?php echo $totals['cart_subtotal']['value']; ?></h3>
+</div>
+
+<h2 class="wc-bacs-bank-details-heading"><?php _e( 'Complete Order', 'aoe' ); ?></h2>
+<p><?php _e( 'Please use this link to complete your order :', 'aoe' ); ?></p>
+<p><a href=""><?php echo sprintf(__( 'Complete Purchase at %s', 'aoe' ), get_bloginfo('name')); ?></a></p>
+
+
 <?php echo apply_filters( 'aoe_footer_text', sprintf( __( 'Thank You for shopping with %s', 'aoe' ), get_bloginfo( 'name' ) ) ); ?>
 <?php //do_action( 'woocommerce_email_customer_details', $order, $sent_to_admin, $plain_text ); ?>
 
 <?php do_action( 'woocommerce_email_footer' ); ?>
+
 <style type="text/css">
 	table.td thead tr, table.td tfoot {
 	    background: #7797b4;
@@ -73,5 +109,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 	}
 	table.td tr:nth-child(2n+2) {
 	    background: #e7eef5;
+	}
+	.total_payment {
+	    background: #eee;
+	    padding: 10px 15px 15px;
+	    text-align: center;
+	    margin-bottom: 20px;
+	}
+	.total_payment h3 {
+	    text-align: center;
+	    color: #557da1;
+	    font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	    font-size: 24px;
+	    font-weight: bold;
+	    margin: 0;
 	}
 </style>

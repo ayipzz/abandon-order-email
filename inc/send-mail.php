@@ -2,8 +2,8 @@
 
 function aoe_do_send_email( $order = false , $test = false, $custom_customer_email = false )
 {
-	// Send to Admin First
-    $abandoned_email_template = apply_filters( 'aoe_abandon_email_template','templates/emails/email-abandoned.php' );
+	// Send to Admin First 
+    $abandoned_email_template = apply_filters( 'aoe_abandon_email_template','templates/emails/email-abandoned.php', $order->id );
 	
 	$order_shipped_email = wc_locate_template( $abandoned_email_template, false, PLUGIN_AOE_PATH );
 
@@ -11,6 +11,7 @@ function aoe_do_send_email( $order = false , $test = false, $custom_customer_ema
 	$email_heading = apply_filters( 'aoe_abandon_email_heading', sprintf( __( 'Complete Your Purchase at %s', 'aoe' ), get_bloginfo( 'name' ) ) );
 	$sent_to_admin = true;
 	$plain_text = sprintf( __( 'Thank You for shopping with %s', 'aoe' ), get_bloginfo( 'name' ) );
+
 
 	// get the preview email content
 	ob_start();
